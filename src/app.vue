@@ -1,44 +1,58 @@
 <template>
-  <div>
+  <div class="all">
     
     <el-row class="">
 
-      <el-col :span="4" class="header1">
+      <!--顶部导航-->
+      <el-col :span="3" class="header1">
         <!--logo-->
         <div class="logoBox">王者荣耀</div>
       </el-col>
 
-      <el-col :span="20" class="header2">
-
-        <!--菜单-->
+      <el-col :span="18" class="header2">
         <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-          <el-menu-item index="1">商城</el-menu-item>
-          <el-menu-item index="2"><a href="#" target="_blank">装备推荐</a></el-menu-item>
-          <el-submenu index="3">
-            <template slot="title">我拥有的英雄</template>
-            <el-menu-item index="3-1">兰陵王</el-menu-item>
-            <el-menu-item index="3-2">程咬金</el-menu-item>
-            <el-menu-item index="3-3">李白</el-menu-item>
+          <el-menu-item index="2-1"></el-menu-item>
+        </el-menu>
+      </el-col>
+
+      <el-col :span="3" class="header3">
+        <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-setting"></i>
+              <span>xm94630</span>
+            </template>
+            <el-menu-item index="3-1">设置</el-menu-item>
+            <el-menu-item index="3-2">退出</el-menu-item>
           </el-submenu>
         </el-menu>
-
       </el-col>
+
     </el-row>
 
-
-
-
-    <el-row :gutter="15" class="MT15">
-      <el-col :span="4">
-        <div class="grid-content bg111">
-          <div>我是左侧区域</div>
-          <i class="el-icon-edit"></i>
-          <i class="el-icon-share"></i>
-          <i class="el-icon-delete"></i>
-        </div>
+    <!--导航以下内容区域-->
+    <el-row :gutter="0" class="conBox">
+      <el-col :span="3" class="menuBox">
+        <!--左侧菜单-->
+        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+              <el-submenu index="1">
+                <template slot="title"><i class="el-icon-message"></i>出装</template>
+                <el-menu-item-group>
+                  <template slot="title">打野</template>
+                  <el-menu-item index="1-1">打野刀</el-menu-item>
+                  <el-menu-item index="1-2">打野大刀</el-menu-item>
+                </el-menu-item-group>
+                <el-menu-item-group title="攻击">
+                  <el-menu-item index="1-3">饮血刀</el-menu-item>
+                  <el-menu-item index="1-3">十方俱灭</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+              <el-menu-item index="2"><i class="el-icon-menu"></i>皮肤</el-menu-item>
+              <el-menu-item index="3"><i class="el-icon-setting"></i>商城</el-menu-item>
+            </el-menu>
       </el-col>
-      <el-col :span="20">
-        <div class="grid-content bg111">
+      <el-col :span="21">
+        <div class="grid-content ">
           <div>我是右侧的区域</div>
           
           <el-button @click="visible = true">按钮</el-button>
@@ -73,7 +87,6 @@
     border-radius: 0px;
   }
   .el-row {
-    margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -93,7 +106,22 @@
   .bg111{
     background:#EFF2F7;
   }
-
+  html {
+      height: 100%;
+  }
+  .all{
+    height: 100%;
+  }
+  .conBox{
+    position:absolute;
+    top:60px;
+    bottom:0px;
+    width:100%;
+  }
+  .conBox .menuBox{
+    background:#eef1f6;
+    height:100%;
+  }
 </style>
 
 <script>
@@ -109,6 +137,12 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    },
+    handleOpen() {
+      console.log('打开');
+    },
+    handleClose() {
+      console.log('关闭');
     }
   }
 };
