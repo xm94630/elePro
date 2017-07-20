@@ -1,18 +1,34 @@
 <template>
   <div>
-    <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-    </el-menu>
-    <h1>elePro</h1>
-    <p>xm94630</p>
-    <el-row :gutter="15">
+    
+    <el-row class="">
+
+      <el-col :span="4" class="header1">
+        <!--logo-->
+        <div class="logoBox">王者荣耀</div>
+      </el-col>
+
+      <el-col :span="20" class="header2">
+
+        <!--菜单-->
+        <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+          <el-menu-item index="1">商城</el-menu-item>
+          <el-menu-item index="2"><a href="#" target="_blank">装备推荐</a></el-menu-item>
+          <el-submenu index="3">
+            <template slot="title">我拥有的英雄</template>
+            <el-menu-item index="3-1">兰陵王</el-menu-item>
+            <el-menu-item index="3-2">程咬金</el-menu-item>
+            <el-menu-item index="3-3">李白</el-menu-item>
+          </el-submenu>
+        </el-menu>
+
+      </el-col>
+    </el-row>
+
+
+
+
+    <el-row :gutter="15" class="MT15">
       <el-col :span="4">
         <div class="grid-content bg111">
           <div>我是左侧区域</div>
@@ -40,10 +56,22 @@
         </div>
       </el-col>
     </el-row>
+
   </div>
 </template>
 
 <style>
+  .logoBox{
+    background-color: #324157;
+    height:60px;
+    line-height:60px;
+    color:#fff;
+    font-size:20px;
+    text-align:center;
+  }
+  .el-menu{
+    border-radius: 0px;
+  }
   .el-row {
     margin-bottom: 20px;
     &:last-child {
@@ -65,6 +93,7 @@
   .bg111{
     background:#EFF2F7;
   }
+
 </style>
 
 <script>
