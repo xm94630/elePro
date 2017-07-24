@@ -4,9 +4,8 @@
 
 <script>
 export default {
-  name: 'caseA01',
+  name: 'logo',
   data: function() {
-    return { name: 'xm' };
   }
 };
 </script>
