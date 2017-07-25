@@ -6,7 +6,8 @@
       <!--顶部导航-->
       <el-col :span="3" class="header1">
         <!--logo-->
-        <div class="logoBox">王者荣耀</div>
+        <!--<div class="logoBox">王者荣耀</div>-->
+        <logoBox class="logoBox">王者荣耀</logoBox>
       </el-col>
 
       <el-col :span="18" class="header2">
@@ -53,8 +54,13 @@
       </el-col>
       <el-col :span="21" class="mainBox">
         <div class="grid-content ">
-          <div>我是右侧的区域</div>
           
+          <titleBar :level=1><span>我就是一个标题组件，怎么样</span><h6>我是副标题，不知道会不会显示</h6></titleBar>
+
+          <div>我是右侧的区域</div>     
+
+          <anchored-heading :level="2">Hi,xm-94630-</anchored-heading>
+
           <el-button @click="visible = true">按钮</el-button>
           <el-button type="primary" icon="search">搜索</el-button>
           <el-button type="success" icon="edit" size="small">编辑</el-button>
