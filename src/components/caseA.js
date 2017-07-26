@@ -19,6 +19,15 @@ import Vue from 'vue';
  * 这个是自己定义的非常简单的一个组件
  */
 Vue.component('titleBar', {
+  //这个参数时候用来捕获组件的属性！
+  //注意组件的属性不同于dom元素的属性，它在渲染之后就会消失。
+  //另外组件的属性，主要用来做组件的灵活配置的！比如这里就是这样子的用法！！
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  },
   render: function(createElement) {
     // console.log('===>');
     // console.log(this.$slots.default);
@@ -29,12 +38,6 @@ Vue.component('titleBar', {
       // 如果指定的子元素不存在的话，那么这个不存在的子元素也不会被渲染
       // [this.$slots.default[1]] 
     );
-  },
-  props: {
-    level: {
-      type: Number,
-      required: true
-    }
   }
 });
 
@@ -232,6 +235,8 @@ Vue.component('myTestF', {
         //class: 'xx',           //当上面已经有 class 的配置，这里为无效
       },
       //暂时还没有发现啥用...
+      //补充，这个应该是组件的数据，因为组件在渲染之后，最外层就没了。所以我就看不到
+      //这个可以用来作为，组件的配置来使用！！
       props: {
         myProp: 'gogogo'
       },
