@@ -97,6 +97,12 @@
 
           <myTestF></myTestF>
 
+          <myTestG></myTestG>
+
+
+
+
+
 
 
 
@@ -175,13 +181,15 @@
 </style>
 
 <script>
+
 export default {
   name: 'app',
   data: function() {
     return {
       visible: false,
       activeIndex: '1',
-      activeIndex2: '1'
+      activeIndex2: '1',
+      message: 'lalal',
     };
   },
   methods: {

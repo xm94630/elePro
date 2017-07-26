@@ -1,5 +1,9 @@
 import Vue from 'vue';
 
+/* ==========================================================================
+ *  第一种方法定义组件 render function
+ * ======================================================================== */
+
 /* ********************************************************** *
  * 自定义组件
  * 这里定义的组件都是纯js写的
@@ -203,7 +207,7 @@ Vue.component('myTestE', {
 
 /*
  * caseA10 createElement 函数 第二个参数的详细配置
- */F
+ */
 Vue.component('myTestF', {
   render: function(createElement) {
 
@@ -248,3 +252,47 @@ Vue.component('myTestF', {
   }
 });
 
+
+/*
+ * caseA11 综合练习
+ */
+Vue.component('myTestG', {
+  data() {
+    return {
+      checked: false,
+      title: '我是一个可爱的按钮'
+    }
+  },
+  methods: {
+    check() {
+      this.checked = !this.checked;
+    }
+  },
+  render(createElement) {
+    return createElement(
+      'div', {
+        attrs: {
+          'class': 'myBoxStyle'
+        },
+        on: {
+          click: this.check
+        }
+      }, [
+        createElement(
+          'div', {
+            'domProps': {
+              innerHTML: this.checked
+            },
+          }
+        ),
+        createElement(
+          'div', {
+            attrs: {
+              'class': 'title'
+            }
+          }, [this.title]
+        )
+      ]
+    );
+  }
+});
