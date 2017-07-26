@@ -1,12 +1,14 @@
 import Vue from 'vue';
 
 /* ==========================================================================
- *  第一种方法定义组件 render function
+ *  第二种方法定义组件 jsx
  * ======================================================================== */
 
 /*
- * caseB01
+ * caseB01 最简单的jsx用法
  */
- Vue.component('caseB', {
-   template: '123',
- });
+Vue.component('myTestB1', {
+  render() {
+    return <div class="myBoxStyle">我是jsx语法写的哦!</div>
+  }
+});

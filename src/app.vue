@@ -52,6 +52,7 @@
               <el-menu-item index="3"><i class="el-icon-setting"></i>商城</el-menu-item>
             </el-menu>
       </el-col>
+
       <el-col :span="21" class="mainBox">
         <div class="grid-content ">
           
@@ -98,6 +99,9 @@
           <myTestF></myTestF>
 
           <myTestG></myTestG>
+          
+          
+          <myTestB1></myTestB1>
 
 
 
@@ -177,6 +181,7 @@
   .conBox .mainBox{
     background:#fff;
     height:100%;
+    overflow: auto;
   }
 </style>
 
