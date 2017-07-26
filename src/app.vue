@@ -56,10 +56,49 @@
         <div class="grid-content ">
           
           <titleBar :level=1><span>我就是一个标题组件，怎么样</span><h6>我是副标题，不知道会不会显示</h6></titleBar>
-
-          <div>我是右侧的区域</div>     
-
+          
           <anchored-heading :level="2">Hi,xm-94630-</anchored-heading>
+
+          <inputBox></inputBox>
+
+
+          <myTestA class="myBoxStyle">
+            <div>我是组件中的子级内容，最后会被原封不动地渲染呢</div>
+          </myTestA>
+
+          <myTestB class="myBoxStyle">
+            <div slot="name1">我是组件中的子级内容1，最后会被原封不动地渲染呢</div>
+            <div slot="name2">我是组件中的子级内容2，最后会被原封不动地渲染呢</div>
+          </myTestB>
+
+          <myTestC class="myBoxStyle">
+            <template scope="xixi">  
+                <div>{{xixi.text}}</div>  
+            </template>
+          </myTestC>
+
+          <myTestD class="myBoxStyle">
+            <p slot="xxx">我是组件中的子级内容，最后会被原封不动地渲染呢</p>
+            <template slot="lala" scope="xixi">
+              <p>子级模板的子级节点 固有内容</p>
+              <p>{{ xixi.vvv }}</p>
+            </template>
+          </myTestD>
+
+          <myTestE class="myBoxStyle">
+            <template slot="name1" scope="xixi">  
+                <span>{{xixi.text}}</span>  
+            </template> 
+            <template slot="name2" scope="xixi">  
+                <div>{{xixi.text}}</div>  
+            </template>  
+          </myTestE>
+
+
+          <myTestF></myTestF>
+
+
+
 
           <el-button @click="visible = true">按钮</el-button>
           <el-button type="primary" icon="search">搜索</el-button>
