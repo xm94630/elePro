@@ -11,6 +11,7 @@
  *  });
  * ======================================================================== */
 
+/* 最简单的例子
 <template>
   <div>
     {{message}}
@@ -29,4 +30,32 @@ export default {
   methods: {
   }
 };
+</script>*/
+
+
+//稍微复杂点的
+<template>
+  <div class="myBoxStyle" @click="alertBox">
+    {{message}}
+    <myTestB1></myTestB1>
+    {{checked}}
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'myPage',
+  data() {
+    return {
+      checked:false,
+      message: '我是单页面组件 的变量~',
+    };
+  },
+  methods: {
+    alertBox(){
+      this.checked = !this.checked;
+    }
+  }
+};
 </script>
+
