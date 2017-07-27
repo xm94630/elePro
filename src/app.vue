@@ -120,7 +120,6 @@
 
 
 
-
           <el-button @click="visible = true">按钮</el-button>
           <el-button type="primary" icon="search">搜索</el-button>
           <el-button type="success" icon="edit" size="small">编辑</el-button>
