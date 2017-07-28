@@ -103,6 +103,19 @@
           <myTestB1></myTestB1>
           
           <myTestB2></myTestB2>
+          
+
+          <myFish inline-template>
+            <div class="myBoxStyle">你一定想不到的是，我是 inline-template 模板中的内容</div> 
+          </myFish>
+
+          <myFish2 inline-template>
+            <div class="myBoxStyle" @click="alertBox">
+              <div>你一定想不到的是，我是 inline-template 模板中的内容</div> 
+              <span>{{lala}}</span>
+            </div> 
+          </myFish2>
+
 
 
 
