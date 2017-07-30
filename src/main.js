@@ -9,6 +9,7 @@ import './components/caseA';
 import './components/caseB';
 import Page from './components/caseC';
 import './components/caseD';
+import './components/caseE';
 
 
 Vue.use(ElementUI);

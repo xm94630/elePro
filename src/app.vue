@@ -104,7 +104,6 @@
           
           <myTestB2></myTestB2>
           
-
           <myFish inline-template>
             <div class="myBoxStyle">你一定想不到的是，我是 inline-template 模板中的内容</div> 
           </myFish>
@@ -116,7 +115,8 @@
             </div> 
           </myFish2>
 
-
+          <myDog class="myBoxStyle2"></myDog>
+          
 
 
 
@@ -201,15 +201,16 @@
     background:#eef1f6;
     height:100%;
   }
-  .conBox .mainBox{
+  .conBox .mainBox{E
     background:#fff;
     height:100%;
     overflow: auto;
   }
 </style>
 
-<script>
 
+
+<script>
 export default {
   name: 'app',
   data: function() {

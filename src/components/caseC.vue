@@ -35,7 +35,7 @@ export default {
 
 //稍微复杂点的
 <template>
-  <div class="myBoxStyle" @click="alertBox">
+  <div class="myBoxStyle2 myHide" @click="alertBox">
     {{message}}
     <myTestB1></myTestB1>
     {{checked}}
