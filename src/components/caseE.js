@@ -37,6 +37,13 @@ Vue.component('myDog3', {
   }
 });
 
+/*
+* caseE04 下面这种引入html 的形式是不支持的，纯粹是我自己想尝试下
+*/
+/*Vue.component('myDog4', {
+  template: './myDog.html',
+});*/
+
 
 
 
