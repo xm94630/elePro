@@ -9,7 +9,23 @@
   <body>
 
     <div id="app"></div>
+    
     <div id="app2"></div>
+    
+    <div id="app3">
+      <pig></pig>
+    </div>
+
+    <div id="app4">
+      <child>
+          <p slot="my-normal-slot">{{message}}</p>
+          
+          <template slot="my-scoped-slot" scope="props">
+            <p >{{props.message}}</p>
+          </template>
+          
+        </child>
+    </div>
     <!-- built files will be auto injected -->
 
     <!-- 我是script中的模板  -->

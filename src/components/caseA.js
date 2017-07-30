@@ -45,7 +45,7 @@ Vue.component('titleBar', {
 
 /*
  * caseA02
- * 在上例的基础上变化
+ * 在上例的基础上变化(简化版本)
  */
 Vue.component('logoBox', {
   render: function(createElement) {
@@ -53,8 +53,6 @@ Vue.component('logoBox', {
       'div',
       this.$slots.default
     );
-  },
-  props: {
   }
 });
 
@@ -240,7 +238,7 @@ Vue.component('myTestF', {
       //补充，这个应该是组件的数据，因为组件在渲染之后，最外层就没了。所以我就看不到
       //这个可以用来作为，组件的配置来使用！！
       props: {
-        myProp: 'gogogo'
+        myProp: 'gogogo',
       },
       //实例的内容部分
       domProps: {
