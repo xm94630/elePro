@@ -116,6 +116,10 @@
           </myFish2>
 
           <myDog class="myBoxStyle2"></myDog>
+
+          <myDog2 class="myBoxStyle2"></myDog2>
+
+          <myDog3 class="myBoxStyle2"></myDog3>
           
 
 
