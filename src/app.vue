@@ -212,7 +212,7 @@
     background:#eef1f6;
     height:100%;
   }
-  .conBox .mainBox{E
+  .conBox .mainBox{
     background:#fff;
     height:100%;
     overflow: auto;
