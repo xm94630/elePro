@@ -84,7 +84,7 @@
           </myTestC>
 
           <myTestD class="myBoxStyle">
-            <p slot="xxx">我是组件中的子级内容，最后会被原封不动地渲染呢</p>
+            <p slot="xxx">我是组件中的子级内容，最后会被原封不动地渲染呢 </p>
             <template slot="lala" scope="xixi">
               <p>子级模板的子级节点 固有内容</p>
               <p>{{ xixi.vvv }}</p>

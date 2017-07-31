@@ -29,18 +29,26 @@
       </pig3>
     </div>
 
+    <div id="app6">
+      <pig4 class="myBoxStyle">
+        <div>{{name}}</div>
+      </pig4>
+    </div>
 
 
-    <!-- <div id="app6">
+    <!-- <div id="app7">
       <child>
-          <p slot="my-normal-slot">{{message}}</p>
-          
+          <p slot="my-normal-slot">{{message}}</p>    
           <template slot="my-scoped-slot" scope="props">
             <p >{{props.message}}</p>
           </template>
-          
-        </child>
+      </child>
     </div> -->
+
+
+
+
+
     <!-- built files will be auto injected -->
 
 

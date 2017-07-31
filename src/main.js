@@ -121,7 +121,75 @@ new Vue({
 })
 
 
+/* ==========================================================================
+ * case6 vue实例 数据在哪里提供？
+ * 这个例子中最重要的是，到底是在哪里去提供渲染的数据呢？
+ * 是在pig组件中，还是vue实例过程中呢？
+ * 本例子是在vue中。但是{{name}}明明被包含在组件中，为什么不在pig组件提供呢？
+ *
+ * 其实除非是组件的内部template 中的变量渲染，是由组件来提供数据，
+ * 其他情况下，则是由vue实例来提供数据的。这里就是这种情况~~~
+ *
+ * 另外在.vue格式的单页组件，非组件的数据是在 export default {} 对象中定义的
+ * ======================================================================== */
+ var pig4={
+    /*data(){
+      return{name:'我是程咬金'}
+    },*/
+    render(h){
+      return h('div',[this.$slots.default]);
+    },
+ }
+ new Vue({
+    el:'#app6',
+    // name 数据在这里提供。
+    // 另外这里的data是对象。而组件中提供数据是（但会data对象的）函数
+    data:{
+      name:'我是兰陵王!'
+    },
+    components:{
+      pig4
+    },
+ })
 
+
+
+
+
+
+
+
+/*var NestedChild = {
+  template: `
+  <div>the following scoped Slot was passed from the main Instance through the Child:
+  <slot name="my-scoped-slot" message="Nested Message"></slot>
+  </div>`,
+  mounted() {
+     console.log(this.$slots)
+  }
+}
+
+var Child = {
+  render(h) {
+   const scopedSlots = this.$vnode.data.scopedSlots
+   const table = h('nested-child', { scopedSlots: scopedSlots })
+   return h('div',[table])
+  },
+  data() {
+   return { childMessage: "Hello from the Child!"}
+  },
+  components: { NestedChild }
+}
+
+new Vue({
+  el: '#app7',
+  data: {
+   message: 'Hello from the parent!'
+  },
+  components: {
+   Child
+  }
+})*/
 
 
 
