@@ -35,15 +35,24 @@
       </pig4>
     </div>
 
+    <div id="app7">
+      <pig5 class="myBoxStyle">
+        <p>{{name}}</p>
+        <template slot="lala" scope="xixi">
+          <div>{{xixi.name}}</div>
+        </template>
+      </pig5>
+    </div>
 
-    <!-- <div id="app7">
-      <child>
-          <p slot="my-normal-slot">{{message}}</p>    
-          <template slot="my-scoped-slot" scope="props">
-            <p >{{props.message}}</p>
+    <div id="app8" class="myBoxStyle3">
+      {{name}}
+      <child class="myBoxStyle">
+          <p>哟哟，{{name}}</p>    
+          <template slot="xxx" scope="props">
+            <p >我猜猜是，{{props.message}}</p>
           </template>
       </child>
-    </div> -->
+    </div>
 
 
 

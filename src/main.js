@@ -133,9 +133,10 @@ new Vue({
  * 另外在.vue格式的单页组件，非组件的数据是在 export default {} 对象中定义的
  * ======================================================================== */
  var pig4={
-    /*data(){
+    data(){
+      //这个数据在这里没有任何意义
       return{name:'我是程咬金'}
-    },*/
+    },
     render(h){
       return h('div',[this.$slots.default]);
     },
@@ -153,43 +154,81 @@ new Vue({
  })
 
 
+/* ==========================================================================
+ * case7 
+ * ======================================================================== */
+ var pig5={
+    data(){
+      //相比case6,这里就有用了
+      //这里的数据可以提供给template中
+      return{name:'我是程咬金'}
+    },
+    render(h){
+      return h('div',[
+        this.$slots.default,
+        this.$scopedSlots.lala({name:this.name}),
+      ]);
+    },
+ }
+ new Vue({
+    el:'#app7',
+    data:{
+      name:'我是兰陵王'
+    },
+    components:{
+      pig5
+    },
+ })
 
 
 
-
-
-
-/*var NestedChild = {
+ /* ==========================================================================
+ * case8 复杂的组件渲染
+ * 这里不仅有组件，而且组件中又动态创建了组件，还混合有 template、slot。非常的有趣
+ * 学习这个例子之后，可以对一般的组件构建都打下比较好的基础！
+ * ======================================================================== */
+var Sunzi = {
   template: `
-  <div>the following scoped Slot was passed from the main Instance through the Child:
-  <slot name="my-scoped-slot" message="Nested Message"></slot>
+  <div class="myBoxStyle2">
+    <span>和孙子同行</span>
+    <slot name="xxx" message="孙子~~"></slot>
   </div>`,
-  mounted() {
-     console.log(this.$slots)
-  }
 }
 
 var Child = {
-  render(h) {
-   const scopedSlots = this.$vnode.data.scopedSlots
-   const table = h('nested-child', { scopedSlots: scopedSlots })
-   return h('div',[table])
-  },
   data() {
-   return { childMessage: "Hello from the Child!"}
+    //这个数据是没地方用呀~
+    return { childMessage: "陈咬金"}
   },
-  components: { NestedChild }
+  render(h) {
+    //这个值后来被用到了，非常神奇，是个函数
+    //看来我还需要先了解下，什么是 this.$vnode 
+    //而且最后取值是哪个 slot中的 message 中的值，其中的关系是怎么样的呢？？
+
+    //我大概缕了一下，
+    //首先，这里的代码是在Child中，所以这里的this就是Child组件
+    //this.$vnode.data.scopedSlots 应该指向的是，这个组件中所出现的 template 模板中的“内容”
+    //然后创建动态元素Sunzi之后，又把该“内容”作为 Sunzi 模板中的 slot 的“内容”
+    //template 模板中设置的作用域是”props“,也就是指 Sunzi 中slot组件的属性对象
+    //所以 props.message 就是这里slot中 message 的值
+    const scopedSlots = this.$vnode.data.scopedSlots 
+    const ele1 = this.$slots.default
+    const ele2 = h('Sunzi', { scopedSlots: scopedSlots }) // 这里有动态创建了一个自定义的子集元素
+    return h('div',[ele1,ele2])
+  },
+  components: { Sunzi }
 }
 
 new Vue({
-  el: '#app7',
+  el: '#app8',
   data: {
-   message: 'Hello from the parent!'
+   name: '兰陵王'
   },
   components: {
    Child
   }
-})*/
+})          
+ 
 
 
 
@@ -199,43 +238,3 @@ new Vue({
 
 
 
-
-
-
-/*
-//这里和上面两个例子不同的是，之前实例化的时候使用的是render函数
-//这里是使用了 components，他们有什么区别呢？
-var NestedChild = {
-  template: `
-  <div>the following scoped Slot was passed from the main Instance through the Child:
-  <slot name="my-scoped-slot" message="Nested Message"></slot>
-  </div>`,
-  mounted() {
-    console.log(this.$slots)
-  }
-}
-
-var Child = {
-  render(h) {
-    const scopedSlots = this.$vnode.data.scopedSlots
-    const table = h('nested-child', { scopedSlots: scopedSlots })
-    return h('div',[table])
-  },
-  data() {
-    return { childMessage: "Hello from the Child!"}
-  },
-  components: { NestedChild }
-}
-
-new Vue({
-  el: '#app4',
-  data: {
-    message: 'Hello from the parent!'
-  },
-  components: {
-    Child
-  }
-})
-
-
-*/
