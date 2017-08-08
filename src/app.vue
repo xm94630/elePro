@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-    
+
     <el-row class="">
 
       <!--顶部导航-->
@@ -55,12 +55,12 @@
 
       <el-col :span="21" class="mainBox">
         <div class="grid-content ">
-          
+
           <titleBar :level="1">
             <span>我就是一个标题组件，怎么样</span>
             <h6>我是副标题，不知道会不会显示</h6>
           </titleBar>
-          
+
           <anchored-heading :level="2">
             Hi,xm-94630-
           </anchored-heading>
@@ -78,8 +78,8 @@
           </myTestB>
 
           <myTestC class="myBoxStyle">
-            <template scope="xixi">  
-                <div>{{xixi.text}}</div>  
+            <template scope="xixi">
+                <div>{{xixi.text}}</div>
             </template>
           </myTestC>
 
@@ -92,12 +92,12 @@
           </myTestD>
 
           <myTestE class="myBoxStyle">
-            <template slot="name1" scope="xixi">  
-                <span>{{xixi.text}}</span>  
-            </template> 
-            <template slot="name2" scope="xixi">  
-                <div>{{xixi.text}}</div>  
-            </template>  
+            <template slot="name1" scope="xixi">
+                <span>{{xixi.text}}</span>
+            </template>
+            <template slot="name2" scope="xixi">
+                <div>{{xixi.text}}</div>
+            </template>
           </myTestE>
 
 
@@ -106,18 +106,18 @@
           <myTestG></myTestG>
 
           <myTestB1></myTestB1>
-          
+
           <myTestB2></myTestB2>
-          
+
           <myFish inline-template>
-            <div class="myBoxStyle">你一定想不到的是，我是 inline-template 模板中的内容</div> 
+            <div class="myBoxStyle">你一定想不到的是，我是 inline-template 模板中的内容</div>
           </myFish>
 
           <myFish2 inline-template>
             <div class="myBoxStyle" @click="alertBox">
-              <div>你一定想不到的是，我是 inline-template 模板中的内容</div> 
+              <div>你一定想不到的是，我是 inline-template 模板中的内容</div>
               <span>{{lala}}</span>
-            </div> 
+            </div>
           </myFish2>
 
           <myDog class="myBoxStyle2"></myDog>
@@ -127,7 +127,7 @@
           <myDog3 class="myBoxStyle2"></myDog3>
 
           <!-- <myDog4 class="myBoxStyle2"></myDog4> -->
-          
+
 
 
 
@@ -217,7 +217,7 @@
     height:100%;
     overflow: auto;
   }
-  
+
 </style>
 
 

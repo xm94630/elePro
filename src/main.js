@@ -13,13 +13,20 @@ import './components/caseE';
 
 
 /* ==========================================================================
- *  case1 vue实例 
+ *  case1 vue实例
  * ======================================================================== */
 
 Vue.use(ElementUI);
 new Vue({ // eslint-disable-line
   el: '#app',
   render: h => h(App)
+});
+
+//这个和上面这个是等效的
+new Vue({
+  el: '#app',
+  template: '<App/>',
+  components: { App }
 });
 
 
@@ -31,7 +38,7 @@ new Vue({ // eslint-disable-line
 //这里的 App、Page 都是“单文件的组件”，这类的组件适合在路由器中使用的~~
 //因为一个路由正好对应了一个页面
 //不过下面的这个组件，你在UI上看不到，是因为被上面的组件给挡住了，这个只是样式的上的问题~
-new Vue({ 
+new Vue({
   el: '#app2',
   render: h => h(Page)
 });
@@ -81,7 +88,7 @@ new Vue({
 /* ==========================================================================
  * case4 vue实例
  * 本例子和上例子是一样的
- * 只是这里，组件定义的时候不在使用 template ，而是使用了 render 函数 
+ * 只是这里，组件定义的时候不在使用 template ，而是使用了 render 函数
  * ======================================================================== */
 var pig2={
   render(h){
@@ -155,7 +162,7 @@ new Vue({
 
 
 /* ==========================================================================
- * case7 
+ * case7
  * ======================================================================== */
  var pig5={
     data(){
@@ -202,7 +209,7 @@ var Child = {
   },
   render(h) {
     //这个值后来被用到了，非常神奇，是个函数
-    //看来我还需要先了解下，什么是 this.$vnode 
+    //看来我还需要先了解下，什么是 this.$vnode
     //而且最后取值是哪个 slot中的 message 中的值，其中的关系是怎么样的呢？？
 
     //我大概缕了一下，
@@ -211,7 +218,7 @@ var Child = {
     //然后创建动态元素Sunzi之后，又把该“内容”作为 Sunzi 模板中的 slot 的“内容”
     //template 模板中设置的作用域是”props“,也就是指 Sunzi 中slot组件的属性对象
     //所以 props.message 就是这里slot中 message 的值
-    const scopedSlots = this.$vnode.data.scopedSlots 
+    const scopedSlots = this.$vnode.data.scopedSlots
     const ele1 = this.$slots.default
     const ele2 = h('Sunzi', { scopedSlots: scopedSlots }) // 这里有动态创建了一个自定义的子集元素
     return h('div',[ele1,ele2])
@@ -227,8 +234,8 @@ new Vue({
   components: {
    Child
   }
-})          
- 
+})
+
 
 
 
