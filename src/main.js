@@ -246,6 +246,7 @@ var Child = {
   components: { Sunzi }
 }
 
+
 new Vue({
   el: '#app8',
   data: {
