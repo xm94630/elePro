@@ -12,22 +12,25 @@ import './components/caseD';
 import './components/caseE';
 
 
+//这样子就可以使用 ElementUI 中所包含的众多组件。
+//Vue.use内部的实现是不是可以人认为 import 了多个组件（从表现上来看是这样子的）。
+Vue.use(ElementUI);
+
 /* ==========================================================================
  *  case1 vue实例
  * ======================================================================== */
 
-Vue.use(ElementUI);
 new Vue({ // eslint-disable-line
   el: '#app',
   render: h => h(App)
 });
 
 //这个和上面这个是等效的
-new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-});
+// new Vue({
+//   el: '#app',
+//   template: '<App/>',
+//   components: { App }
+// });
 
 
 /* ==========================================================================
@@ -164,6 +167,20 @@ new Vue({
 /* ==========================================================================
  * case7
  * ======================================================================== */
+
+//这里对应的模板是
+//<template slot="lala" scope="xixi">
+//    <div>{{xixi.name}}</div>
+//</template>
+//这里 <template scope="xixi"> 的写法，是“作用域scope模板”用法。在导图中就有这部分的知识
+//slot="lala" 会索引到 命名为“lala”的slot中
+//（另外，有命名的slot不在 this.$slots.default之中 ）
+// (恰切的说，是在 this.$scopedSlots.lala 中)
+// 当然这里看到的 this.$slots.default、this.$scopedSlots.lala 似乎有点不好理解。其实这个是和 render 函数有关的。
+// 如果采用的 template 这种方法的时候，就直观多了呢。那么 lala 的slot 因该是这么写的：
+// <slot name=“lala”></slot>
+
+
  var pig5={
     data(){
       //相比case6,这里就有用了
@@ -218,9 +235,12 @@ var Child = {
     //然后创建动态元素Sunzi之后，又把该“内容”作为 Sunzi 模板中的 slot 的“内容”
     //template 模板中设置的作用域是”props“,也就是指 Sunzi 中slot组件的属性对象
     //所以 props.message 就是这里slot中 message 的值
-    const scopedSlots = this.$vnode.data.scopedSlots
+
+    const scopedSlots = this.$vnode.data.scopedSlots  // 这里是来捕获“节点”中的那个“作用域slot”
+    //const scopedSlots2= this.$scopedSlots.xxx       // 哦，对了，这个是采用的上例子中的写法，发现等效的用法~~
+
     const ele1 = this.$slots.default
-    const ele2 = h('Sunzi', { scopedSlots: scopedSlots }) // 这里有动态创建了一个自定义的子集元素
+    const ele2 = h('Sunzi', { scopedSlots: scopedSlots }) // 这里又动态创建了一个自定义的子集元素
     return h('div',[ele1,ele2])
   },
   components: { Sunzi }
