@@ -20,10 +20,10 @@ Vue.use(ElementUI);
  *  case1 vue实例
  * ======================================================================== */
 
-new Vue({ // eslint-disable-line
-  el: '#app',
-  render: h => h(App)
-});
+// new Vue({ // eslint-disable-line
+//   el: '#app',
+//   render: h => h(App)
+// });
 
 //这个和上面这个是等效的
 // new Vue({
@@ -179,7 +179,7 @@ new Vue({
 // 当然这里看到的 this.$slots.default、this.$scopedSlots.lala 似乎有点不好理解。其实这个是和 render 函数有关的。
 // 如果采用的 template 这种方法的时候，就直观多了呢。那么 lala 的slot 因该是这么写的：
 // <slot name=“lala”></slot>
-
+// 参见案例9
 
  var pig5={
     data(){
@@ -258,6 +258,39 @@ new Vue({
 })
 
 
+/* ==========================================================================
+ * case9 这是对case7的变化
+ * ======================================================================== */
+
+ var pig6={
+    data(){
+      return{name:'我是程咬金'}
+    },
+
+    //这里的这种写法，和下面的这种是一样的
+    template:
+    `<div>`+
+        `<slot></slot>`+
+        `<slot name="lala" :myName="name">23</slot>`+
+    `</div>`
+    ,
+
+    // render(h){
+    //     return h('div',[
+    //       this.$slots.default,
+    //       this.$scopedSlots.lala({name:this.name}),
+    //     ]);
+    //   },
+ }
+ new Vue({
+    el:'#app9',
+    data:{
+      name:'我是兰陵王'
+    },
+    components:{
+      pig6
+    },
+ })
 
 
 

@@ -9,9 +9,9 @@
   <body>
 
     <div id="app"></div>
-    
+
     <div id="app2"></div>
-    
+
     <div id="app3">
       <pig class="myBoxStyle"></pig>
     </div>
@@ -47,11 +47,20 @@
     <div id="app8" class="myBoxStyle3">
       {{name}}
       <child class="myBoxStyle">
-          <p>哟哟，{{name}}</p>    
+          <p>哟哟，{{name}}</p>
           <template slot="xxx" scope="props">
             <p >我猜猜是，{{props.message}}</p>
           </template>
       </child>
+    </div>
+
+    <div id="app9">
+      <pig6 class="myBoxStyle">
+        <p>{{name}}</p>
+        <template slot="lala" scope="xixi">
+          <div>{{xixi.myName}}</div>
+        </template>
+      </pig6>
     </div>
 
 
@@ -75,6 +84,6 @@
 
 
   </body>
-  
+
 </html>
 
