@@ -38,7 +38,7 @@ Vue.component('titleBar', {
       this.$slots.default // 子节点的数组
       // 如果组件中有多个元素的话，就可以这样子来选择我需要自己子集内容，只要确保外层是个数据就好了
       // 如果指定的子元素不存在的话，那么这个不存在的子元素也不会被渲染
-      // [this.$slots.default[1]] 
+      // [this.$slots.default[1]]
     );
   }
 });
@@ -59,7 +59,7 @@ Vue.component('logoBox', {
 /*
  * caseA03
  * 这个是官网的一个例子
- * 注意这里使用 createElement 中的第二个参数不再是 $slots.default 
+ * 注意这里使用 createElement 中的第二个参数不再是 $slots.default
  * 而是自己创建的虚拟元素~
  * 说白了就是，createElement第二个参数就需要传入虚拟dom对象而已，至于你是使用 $slots.default 中获取，还是自己创建都是可以的。
  */
@@ -119,13 +119,18 @@ Vue.component('inputBox', {
   render: function(createElement) {
     var self = this;
     return createElement('input', {
+
+      //domProps是对新建dom元素上的一些设置，比如这里的value属性设置，还有后面的innerHTML是对元素内的内容设置
       domProps: {
+        //input的value属性的值，来自于组件实例的value，默认的值是 undefined。
+        //这里只是一次性使用，后来的input事件的时候，都把最新的值保存在组件实例之上(而不是input标签的value上，input的value属性其实很特殊的，直接体现在文本输入框的内容中)
         value: self.value
       },
       on: {
         input: function(event) {
           self.value = event.target.value;
           self.$emit('input', event.target.value);
+          console.log('我的值被改变了：');
         }
       }
     });
@@ -144,9 +149,9 @@ Vue.component('inputBox', {
  * domProps的使用
  */
 Vue.component('myTestA', {
-  render:function(createElement){  
-    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});  
-    return createElement('div',[he,this.$slots.default])  
+  render:function(createElement){
+    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});
+    return createElement('div',[he,this.$slots.default])
   }
 })
 
@@ -154,10 +159,10 @@ Vue.component('myTestA', {
  * caseA06 多个slot使用
  */
 Vue.component('myTestB', {
-  render:function(createElement){  
-    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});  
-    return createElement('div',[he,this.$slots.name1,this.$slots.name2])  
-  }  
+  render:function(createElement){
+    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});
+    return createElement('div',[he,this.$slots.name1,this.$slots.name2])
+  }
 })
 
 /* ********************************************************** *
@@ -165,8 +170,8 @@ Vue.component('myTestB', {
  * 这里个是在上面的基础上，增加了 scope 的概念
  * 我们发现，这里要使用 $scopedSlots ，在模板中都会使用到template：
  * <myTestC>
- *   <template scope="props">  
- *     <div>{{props.text}}</div>  
+ *   <template scope="props">
+ *     <div>{{props.text}}</div>
  *   </template>
  * </myTestC>
  * 这样子也相当于可以有 template 的嵌套，然后，还可以有自己的作用域，在渲染值的时候可以互不影响
@@ -176,12 +181,12 @@ Vue.component('myTestB', {
  * caseA07 子模板
  */
 Vue.component('myTestC', {
-  render:function(createElement){  
-    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});  
-    return createElement('div',[he,this.$scopedSlots.default({  
-        text:'我是子级模板渲染得到的'  
-    })])  
-  } 
+  render:function(createElement){
+    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});
+    return createElement('div',[he,this.$scopedSlots.default({
+        text:'我是子级模板渲染得到的'
+    })])
+  }
 })
 
 /*
@@ -198,12 +203,12 @@ Vue.component('myTestD', {
  * caseA09 子模板
  */
 Vue.component('myTestE', {
-  render:function(createElement){  
-    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});  
+  render:function(createElement){
+    var he=createElement('div',{domProps:{innerHTML:'我是动态创建的哦'}});
     return createElement('div',[he,
       this.$scopedSlots.name1({text:'我是子级模板1 渲染得到的'}),
       this.$scopedSlots.name2({text:'我是子级模板2 渲染得到的'}),
-    ])  
+    ])
   }
 })
 
@@ -242,11 +247,17 @@ Vue.component('myTestF', {
       },
       //实例的内容部分
       domProps: {
-        innerHTML: '<span>我是被追加的</span>'
+        innerHTML: '<span>我是被追加的哦</span>'
       },
       //这个目前还不十分清楚
       //但是我估计就是实例内部的一个模板的定义吧
       //具体如何用呢？
+      //答：这个称之为“作用域slots”，相当于构建了
+      //<slot text=“我是lala”></slot> 这样子插槽。 （对于子级的使用）
+      //还是<template scope=“props”><span>{{ props.text }}</span></template> ？  （对于父级的使用）
+      //具体运用还要再看看。
+      //感觉像是后者。另外，对于这种createElement创建的元素，其子级的内容是如何产生的呢？
+      //如果在 innerHTML 中添加一个子组件，似乎不能被渲染，这个如何处理呢？
       scopedSlots: {
         default: props => createElement('span', props.text)
       }
@@ -256,7 +267,6 @@ Vue.component('myTestF', {
     return ele;
   }
 });
-
 
 /*
  * caseA11 综合练习

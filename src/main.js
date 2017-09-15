@@ -20,10 +20,10 @@ Vue.use(ElementUI);
  *  case1 vue实例
  * ======================================================================== */
 
-// new Vue({ // eslint-disable-line
-//   el: '#app',
-//   render: h => h(App)
-// });
+new Vue({ // eslint-disable-line
+  el: '#app',
+  render: h => h(App)
+});
 
 //这个和上面这个是等效的
 // new Vue({
