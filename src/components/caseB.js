@@ -17,7 +17,7 @@ Vue.component('myTestB1', {
 });
 
 /*
- * caseB02 
+ * caseB02
  */
 Vue.component('myTestB2', {
 

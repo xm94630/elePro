@@ -56,6 +56,8 @@
       <el-col :span="21" class="mainBox">
         <div class="grid-content ">
 
+          <miniRouter></miniRouter>
+
           <titleBar :level="1">
             <span>我就是一个标题组件，怎么样</span>
             <h6>我是副标题，不知道会不会显示</h6>
