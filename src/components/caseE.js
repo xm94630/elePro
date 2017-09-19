@@ -43,7 +43,3 @@ Vue.component('myDog3', {
 /*Vue.component('myDog4', {
   template: './myDog.html',
 });*/
-
-
-
-

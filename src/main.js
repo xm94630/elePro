@@ -4,6 +4,9 @@ import './assets/custom.css';
 import 'element-ui/lib/theme-default/index.css';
 import ElementUI from 'element-ui';
 
+import router from './router';
+import myRouter from './myRouter';
+
 // 引入自定义的组件，这样子就可以在html中嵌入组件
 import './components/caseA';
 import './components/caseB';
@@ -294,7 +297,15 @@ new Vue({
 
 
 
-
+/* ==========================================================================
+ * case10 使用路由的实例
+ * ======================================================================== */
+new Vue({
+    el: '#app10',
+    router,
+    template: '<myRouter/>',
+    components: { myRouter }
+  });
 
 
 
