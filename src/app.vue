@@ -35,7 +35,7 @@
     <el-row :gutter="0" class="conBox">
       <el-col :span="3" class="menuBox">
         <!--左侧菜单-->
-        <el-menu default-active="2" class="el-menu-vertical-demo collapsed" @open="handleOpen" @close="handleClose" @select="leftMenu">
+        <el-menu default-active="2" class="el-menu-vertical-demo collapsed" @open="handleOpen" @close="handleClose" @select="leftMenu" router>
               <el-submenu index="1">
                 <template slot="title"><i class="el-icon-message"></i>出装</template>
                 <el-menu-item-group>
@@ -225,7 +225,14 @@
 
 
 <script>
+import Vue from 'vue';
+import router from './router';
 export default {
+  router,
+  beforeCreate(){
+    console.log('看看 this.$route 是不是已经存在啦，关键在于把 router 引入')
+    console.log(this.$route)
+  },
   name: 'app',
   data: function() {
     return {
