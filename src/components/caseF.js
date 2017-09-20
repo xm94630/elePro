@@ -10,7 +10,7 @@ Vue.component('miniRouter', {
     //上个git版本中，是在vue实例中使用了路由。
     //这里我尝试地在自定义组件中使用了 路由，其实和vue实例中的用法是一样！
     router,
-    template: '<div class="">迷你小路由，下面的内容会随着路由而改变<router-view></router-view></div>',
+    template: '<div class="fishLine"><router-view></router-view></div>',
 });
 
 
