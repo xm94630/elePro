@@ -28,6 +28,21 @@
         <p>我是蓝爸爸</p>
       </bee-king4>
 
+      <!-- 案例5 -->
+      <bee-king5>
+        <p>这部分文字将会看不到哦...</p>    <!-- 当没有指定name的时候，这个就会被忽略 -->
+        <template scope="hero">         <!-- 当没有指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
+          <div>{{hero.kingName}}</div>
+        </template>
+      </bee-king5>
+      <!-- 案例5-2 -->
+      <bee-king5>
+        <p>被发现啦...</p>                    <!-- 当指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
+        <template scope="hero" slot="xixi">  <!-- 当指定name的时候，就会被用在组件的对应名slot处，这里会被用到2次(被复用) -->
+          <div>{{hero.kingName}}</div>
+        </template>
+      </bee-king5>
+
   </div>
 </template>
 
