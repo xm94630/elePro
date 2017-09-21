@@ -53,6 +53,17 @@
       </bee-king5>
 
 
+      <!-- 案例6 -->
+      <!-- 这里展示的从父级传数据到子级 -->
+      <!-- 需要注意的是！这里的 myValue 其实最外层中的数据，并不是 bee-king-wzj 的父级 bee-king6！ -->
+      <!-- 言外之意，就是这里的都是在最外层的作用域下控制。-->
+      <bee-king6>
+        <div>欢迎来到王者荣耀</div>
+        <bee-king-wzj :attack="myValue">
+          欢迎来看望王昭君
+        </bee-king-wzj>
+      </bee-king6>
+
   </div>
 </template>
 
@@ -61,7 +72,8 @@ export default {
   name: 'hello',
   data: function xxx() {
     return {
-      kingName: '哟哟，你看到的文字，是来自父级的哦'
+      kingName: '哟哟，你看到的文字，是来自父级的哦',
+      myValue: '999',
     };
   }
 };
