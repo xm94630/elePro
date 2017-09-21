@@ -1,6 +1,9 @@
 <template>
   <div>
-      我是路由控制的区域哦，我叫小A
+      <div>我是路由控制的区域哦，我叫小A</div>
+
+      <!-- 这里的使用和 bee-king 组件定义的名字格式需要保持一致的 -->
+      <bee-king></bee-king>
   </div>
 </template>
 

@@ -12,6 +12,7 @@ import Page from './components/caseC';
 import './components/caseD';
 import './components/caseE';
 import './components/caseF';
+import './components/beeKing';
 
 
 //这样子就可以使用 ElementUI 中所包含的众多组件。
