@@ -13,6 +13,11 @@
         <p>我是蓝爸爸</p>
       </bee-king2>
 
+      <!-- 案例3 -->
+      <bee-king3>
+        <p slot="myCon">我是蓝爸爸</p>
+        <p>我是红爸爸</p>
+      </bee-king3>
 
 
   </div>
