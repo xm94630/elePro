@@ -55,9 +55,15 @@ Vue.component('bee-king5', {
   },
   template: `<div class="bg1 PD10 MT5">
     <div>王者荣耀组件5</div>
-    <slot kingName="小明明">我是默认的内容1</slot>
-    <slot name="xixi" :kingName=name1 >我是默认的内容3</slot>
-    <slot name="xixi" kingName="小月月222">我是默认的内容3</slot>
+    <slot kingName="小明明">
+      <div>我是默认的内容1</div>
+    </slot>
+    <slot name="xixi" :kingName=name1 >
+      <div>我是默认的内容3</div>
+    </slot>
+    <slot name="xixi" kingName="小月月222">
+      <div>我是默认的内容3</div>
+    </slot>
   </div>`,
 });
 

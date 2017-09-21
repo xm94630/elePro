@@ -28,6 +28,7 @@
         <p>我是蓝爸爸</p>
       </bee-king4>
 
+
       <!-- 案例5 -->
       <bee-king5>
         <p>这部分文字将会看不到哦...</p>    <!-- 当没有指定name的时候，这个就会被忽略 -->
@@ -35,6 +36,7 @@
           <div>{{hero.kingName}}</div>
         </template>
       </bee-king5>
+
       <!-- 案例5-2 -->
       <bee-king5>
         <p>被发现啦...</p>                    <!-- 当指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
@@ -42,6 +44,14 @@
           <div>{{hero.kingName}}</div>
         </template>
       </bee-king5>
+
+      <!-- 案例5-3 -->
+      <!-- 重要：这里的kingName看上去是被包含在 bee-king5 之中，但是并不是 bee-king5 提供的！ -->
+      <!-- 所以，上两个例子中的 template 的真正的作用，其实是把原有父级的作用域，交给了子级的作用域 -->
+      <bee-king5>
+        <div>{{kingName}}</div>
+      </bee-king5>
+
 
   </div>
 </template>
@@ -51,7 +61,7 @@ export default {
   name: 'hello',
   data: function xxx() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      kingName: '哟哟，你看到的文字，是来自父级的哦'
     };
   }
 };
