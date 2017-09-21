@@ -19,6 +19,14 @@
         <p>我是红爸爸</p>
       </bee-king3>
 
+      <!-- 案例4 -->
+      <bee-king4>
+        <!-- 这里的两部分都会被放到父级的slot中呢 -->
+        <bee-king-llw>
+          我是子组件的蓝爸爸 <!-- 这里的是会被放到子组件中的slot中呢 -->
+        </bee-king-llw>
+        <p>我是蓝爸爸</p>
+      </bee-king4>
 
   </div>
 </template>

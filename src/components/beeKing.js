@@ -29,3 +29,35 @@ Vue.component('bee-king3', {
     <slot name='myCon'>我是默认的内容2</slot>
   </div>`,
 });
+
+//案例4：这里使用了组件的嵌套，而且子组件中还有slot。
+Vue.component('bee-king-llw', {
+  template: `<div class="bg4">
+    <p>我是兰陵王</p>
+    <slot>我是默认的内容2</slot>
+  </div>`,
+});
+Vue.component('bee-king4', {
+  template: `<div class="bg5 PD10">
+    <div>王者荣耀组件4</div>
+    <slot>我是默认的内容1</slot>
+  </div>`,
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
