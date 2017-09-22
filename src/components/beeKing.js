@@ -80,11 +80,11 @@ Vue.component('bee-king5', {
 Vue.component('bee-king6', {
   data(){
     return{
-      myValue:'小月月111'
+      gameName:'王者荣耀游戏'
     }
   },
   template: `<div class="bg2 PD10 MT5">
-    <div>王者荣耀</div>
+    <div>{{gameName}}</div>
     <slot></slot>
   </div>`,
 });
@@ -92,11 +92,11 @@ Vue.component('bee-king-wzj', {
   props:['attack'],
   data(){
     return{
-      name1:'小月月111'
+      kingName:'王昭君'
     }
   },
   template: `<div class="bg3">
-    <div>王昭君的攻击力是：{{attack}}</div>
+    <div>{{kingName}}的攻击力是：{{attack}}</div>
     <slot></slot>
   </div>`,
 });
