@@ -119,18 +119,11 @@ Vue.component('bee-king7', {
     <slot name="xixi" :attack="attack"></slot>
   </div>`,
 });
-Vue.component('bee-king-wzj', {
-  props:['attack'],
-  data(){
-    return{
-      kingName:'王昭君'
-    }
-  },
-  template: `<div class="bg3">
-    <div>{{kingName}}的攻击力是：{{attack}}</div>
-    <slot></slot>
-  </div>`,
-});
+//另外我们看到：案例6 和 案例7 都服用了同一个组件 bee-king-wzj。
+//对于bee-king-wzj组件而言，不管外层的组件结构如何变化，对已这个组件本身是不会有影响的。
+//该组件只是简单的想要一个接受一个attack属性而已，外面如何提供，它也不用关心的。
+
+
 
 
 
