@@ -47,7 +47,7 @@
 
       <!-- 案例5-3 -->
       <!-- 重要：这里的kingName看上去是被包含在 bee-king5 之中，但是并不是 bee-king5 提供的！ -->
-      <!-- 所以，上两个例子中的 template 的真正的作用，其实是把原有父级的作用域，交给了子级的作用域 -->
+      <!-- 所以，上两个例子中的 template 的真正的作用，其实是把原有父级的作用域(bee-king5的上级)，交给了子级的作用域（bee-king5） -->
       <bee-king5>
         <div>{{kingName}}</div>
       </bee-king5>
@@ -64,6 +64,19 @@
         </bee-king-wzj>
       </bee-king6>
 
+
+      <!-- 案例7 -->
+      <bee-king7 :attackBig="attackBig">
+        <div>欢迎来到王者荣耀</div>
+
+        <template scope="hero" slot="xixi">
+          <bee-king-wzj :attack="hero.attack">
+            欢迎来看望王昭君
+          </bee-king-wzj>
+        </template>
+
+      </bee-king7>
+
   </div>
 </template>
 
@@ -74,6 +87,7 @@ export default {
     return {
       kingName: '哟哟，你看到的文字，是来自父级的哦',
       myValue: '999',
+      attackBig: '8888',
     };
   }
 };

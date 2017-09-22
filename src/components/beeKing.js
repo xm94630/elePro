@@ -74,9 +74,10 @@ Vue.component('bee-king5', {
 
 
 /* ==========================================================================
- *  子父通信 研究
+ * 子父通信 研究
+ * 在这个案例中，bee-king-wzj组件的prop的参数，其实不是来自它直接的上级，而是上上级别的数据
  * ======================================================================== */
-//案例5：作用域slot
+//案例6
 Vue.component('bee-king6', {
   data(){
     return{
@@ -101,6 +102,35 @@ Vue.component('bee-king-wzj', {
   </div>`,
 });
 
+//案例7
+//这个案例中，我特意处理成：数据从顶级组件，上传给bee-king7，再由 bee-king7 传递给 bee-king-wzj 的过程
+//这里也运用了作用域slot的作用。进展顺利。也算是掌握了作用域slot。
+//但是这个模型其实挺复杂的，有没有简单的形式存在呢？
+Vue.component('bee-king7', {
+  props:['attackBig'],
+  data(){
+    return{
+      gameName:'王者荣耀游戏',
+      attack:this.attackBig,
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    <div>{{gameName}}</div>
+    <slot name="xixi" :attack="attack"></slot>
+  </div>`,
+});
+Vue.component('bee-king-wzj', {
+  props:['attack'],
+  data(){
+    return{
+      kingName:'王昭君'
+    }
+  },
+  template: `<div class="bg3">
+    <div>{{kingName}}的攻击力是：{{attack}}</div>
+    <slot></slot>
+  </div>`,
+});
 
 
 
