@@ -58,7 +58,7 @@
       <!-- 需要注意的是！这里的 myValue 其实最外层中的数据，并不是 bee-king-wzj 的父级 bee-king6！ -->
       <!-- 言外之意，就是这里的都是在最外层的作用域下控制。-->
       <bee-king6>
-        <div>欢迎来到王者荣耀</div>
+        <div @click="addAttack">欢迎来到王者荣耀(点击试试)</div>
         <bee-king-wzj :attack="myValue">
           欢迎来看望王昭君
         </bee-king-wzj>
@@ -85,11 +85,16 @@
 <script>
 export default {
   name: 'hello',
+  methods:{
+    addAttack(){
+      this.myValue = this.myValue+1;
+    },
+  },
   data: function xxx() {
     return {
       kingName: '哟哟，你看到的文字，是来自父级的哦',
-      myValue: '999',
-      attackBig: '8888',
+      myValue: 999,
+      attackBig: 8888,
     };
   }
 };
