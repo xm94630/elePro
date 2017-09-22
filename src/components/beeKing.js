@@ -123,6 +123,15 @@ Vue.component('bee-king7', {
 //对于bee-king-wzj组件而言，不管外层的组件结构如何变化，对已这个组件本身是不会有影响的。
 //该组件只是简单的想要一个接受一个attack属性而已，外面如何提供，它也不用关心的。
 
+//补充，其实对于案例7，我最初的目的是想做一个，从bee-king7组件直接传数据给bee-king-wzj组件的方法，其实我现在发现，这样子的想法是错误的。
+//比如在ele组件中，其实 el-menu-item 的数据也不是 从el-menu、再从el-col获取的：
+//<el-col :span="18" class="header2">
+//  <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+//    <el-menu-item index="2-1"></el-menu-item>
+//  </el-menu>
+//</el-col>
+//其实，每个（嵌套的）组件，只需要直接和最上层的组件索取数据就可以了。无需要和周围的组件索要数据
+//另外，其实很多配置属性，都是静态设置好了就行，这里也就 activeIndex 、 handleSelect 两个方法来自于外部的供应。
 
 
 
