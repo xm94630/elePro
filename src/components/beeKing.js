@@ -77,7 +77,7 @@ Vue.component('bee-king5', {
  * 子父通信 研究
  * 在这个案例中，bee-king-wzj组件的prop的参数，其实不是来自它直接的上级，而是上上级别的数据
  * ======================================================================== */
-//案例6
+//案例6 父->子 props
 Vue.component('bee-king6', {
   data(){
     return{
@@ -102,7 +102,7 @@ Vue.component('bee-king-wzj', {
   </div>`,
 });
 
-//案例7
+//案例7  父->子 props
 //这个案例中，我特意处理成：数据从顶级组件，上传给bee-king7，再由 bee-king7 传递给 bee-king-wzj 的过程
 //这里也运用了作用域slot的作用。进展顺利。也算是掌握了作用域slot。
 //但是这个模型其实挺复杂的，有没有简单的形式存在呢？
@@ -134,7 +134,27 @@ Vue.component('bee-king7', {
 //另外，其实很多配置属性，都是静态设置好了就行，这里也就 activeIndex 、 handleSelect 两个方法来自于外部的供应。
 
 
-
+//案例7 子->父亲
+//bee-king8组件内部发送数据给外层组件，通过的是“自定义事件”，比如这里的 customEvent。
+Vue.component('bee-king8', {
+  methods:{
+    myClick(){
+      // emit 这样子的模式其实非常常见，就是“发布订阅模式”的一种。
+      // 说简单点，这里其实就是在调用函数的一个过程。
+      // 这里的参数是可以多个传递的。
+      this.$emit('customEvent', 100,200,300);
+    },
+  },
+  data(){
+    return{
+      gameName:'王者荣耀游戏',
+    }
+  },
+  template: `<div class="bg2 PD10 MT5" @click="myClick">
+    <div>{{gameName}}</div>
+    <slot></slot>
+  </div>`,
+});
 
 
 

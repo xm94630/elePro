@@ -74,9 +74,10 @@
             欢迎来看望王昭君
           </bee-king-wzj>
         </template>
-
       </bee-king7>
 
+      <!-- 案例8 -->
+      <bee-king8 @customEvent="getDataFromSon"></bee-king8>
 
 
   </div>
@@ -88,6 +89,9 @@ export default {
   methods:{
     addAttack(){
       this.myValue = this.myValue+1;
+    },
+    getDataFromSon(...data){
+      console.log(data);
     },
   },
   data: function xxx() {
