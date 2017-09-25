@@ -233,8 +233,10 @@ Vue.component('bee-king10', {
     <button @click="myclick">点击</button>
   </div>`,
 });
-
-
+//注意这里的 @input="something = $event.target.value"
+//为什么引号中的是直接是表达式，而案例12中  @update:kingName=" (a) => something = a" 则是函数的形式
+//那么到底是 表达式，还是函数呢
+//其实这个是受条件限制的~ 比如这里的，浏览器事件就是直接用表达式。而自定义事件则是函数~
 
 
 //案例11 .sync
