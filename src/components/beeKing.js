@@ -216,7 +216,6 @@ Vue.component('bee-king9', {
   </div>`,
 }); */
 
-
 Vue.component('bee-king10', {
   methods:{
     myclick:function(){
@@ -234,3 +233,101 @@ Vue.component('bee-king10', {
     <button @click="myclick">点击</button>
   </div>`,
 });
+
+
+//案例11 跨组件之间的双向绑定
+Vue.component('bee-king11', {
+  methods:{
+    myclick:function(){
+      this.something =this.something;
+    }
+  },
+  data(){
+    return{
+      something:'鲁班七号'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    王者荣耀
+    <div>父级的数据：{{something}}</div>
+    <bee-king-lbqh :kingName.sync="something"></bee-king-lbqh>
+  </div>`,
+});
+
+Vue.component('bee-king-lbqh', {
+  props:['kingName'],
+  data(){
+    return{
+      kingName:'',
+    }
+  },
+  methods:{
+    myclick:function(){
+      this.kingName2 =this.kingName+"副本"
+      this.$emit('update:kingName', this.kingName2)
+    }
+  },
+  data(){
+    return{
+      something:'默认值哈哈'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    来自父级的数据：{{kingName}}
+    <button @click="myclick">点击</button>
+  </div>`,
+});
+
+
+
+
+
+//案例12 跨组件之间的双向绑定
+/* Vue.component('bee-king11', {
+  methods:{
+    myclick:function(){
+      alert(this.something);
+    }
+  },
+  data(){
+    return{
+      something:'默认值哈哈'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    啦啦啦
+    <input :value="something" @input="something = $event.target.value" >
+    <button @click="myclick">点击</button>
+    <slot></slot>
+  </div>`,
+});
+
+Vue.component('bee-king-lbqh', {
+  data(){
+    return{
+      something:'默认值哈哈'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    鲁班七号
+  </div>`,
+});
+ */
+
+
+
+/* 组件嵌套两种类型 */
+/* <!-- 案例10 -->
+<bee-king11>
+  <bee-king-lbqh></bee-king-lbqh>
+</bee-king11> */
+
+
+
+
+
+
+
+
+
+

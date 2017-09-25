@@ -85,6 +85,14 @@
       <!-- 案例9 -->
       <bee-king10></bee-king10>
 
+      <!-- 案例10 -->
+      <bee-king11></bee-king11>
+
+      <!-- 案例11 -->
+      <!-- <bee-king12>
+        <bee-king-lbqh></bee-king-lbqh>
+      </bee-king12> -->
+
   </div>
 </template>
 
