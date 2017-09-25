@@ -240,11 +240,6 @@ Vue.component('bee-king10', {
 //案例11 .sync
 //跨组件之间的双向绑定
 Vue.component('bee-king11', {
-  methods:{
-    myclick:function(){
-      this.something =this.something;
-    }
-  },
   data(){
     return{
       something:'鲁班七号'
@@ -261,11 +256,8 @@ Vue.component('bee-king-lbqh', {
   props:['kingName'],
   data(){
     return{
-      kingName:'',
+      kingName2:'',
     }
-  },
-  data(){
-    return{}
   },
   methods:{
     myclick:function(){
@@ -303,13 +295,24 @@ Vue.component('bee-king12', {
     <div>父级的数据：{{something}}</div>
     <bee-king-lbqh :kingName="something" @update:kingName=" (a) => something = a" ></bee-king-lbqh>
   </div>`,
+  //注意，上面的 @update:kingName 这个部分是非常核心的！
+  //为什么这里是这样子用的呢？可以用下面的方法替换吗？（比如在案例10中就有：@input="something = $event.target.value" 这样子的用法）
+  //答案：不行的，为什么呢？其实原因就在于，input事件是浏览器的默认事件，所以 $event 中保存浏览器默认事件中的一些数据
+  //但是“update:kingName”是，其实是自定义事件（虽然也是vue提供的，但是依然有别于浏览器默认事件）
+  //我们知道这类自定义的实现其实就是一个发布订阅模式！所以上面其实就是对事件响应的处理（" (a) => something = a"）。
+
+  /* template: `<div class="bg2 PD10 MT5">
+    王者荣耀
+    <div>父级的数据：{{something}}</div>
+    <bee-king-lbqh :kingName="something" @update:kingName=" something = $event.target.value " ></bee-king-lbqh>
+  </div>`, */
 });
 
 Vue.component('bee-king-blts', {
   props:['kingName'],
   data(){
     return{
-      kingName:'',
+      kingName2:'',
     }
   },
   methods:{
