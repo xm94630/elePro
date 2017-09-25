@@ -79,6 +79,8 @@
       <!-- 案例8 -->
       <bee-king8 @customEvent="getDataFromSon"></bee-king8>
 
+      <!-- 案例9 -->
+      <bee-king9></bee-king9>
 
   </div>
 </template>
