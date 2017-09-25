@@ -147,7 +147,7 @@ Vue.component('bee-king8', {
   },
   data(){
     return{
-      gameName:'王者荣耀游戏',
+      gameName:'王者荣耀游戏（点我看log，来自子组件的事件（数据））',
     }
   },
   template: `<div class="bg2 PD10 MT5" @click="myClick">
