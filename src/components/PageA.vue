@@ -76,11 +76,14 @@
         </template>
       </bee-king7>
 
-      <!-- 案例8 -->
+      <!-- 案例7-2 -->
       <bee-king8 @customEvent="getDataFromSon"></bee-king8>
 
-      <!-- 案例9 -->
+      <!-- 案例8 -->
       <bee-king9></bee-king9>
+
+      <!-- 案例9 -->
+      <bee-king10></bee-king10>
 
   </div>
 </template>

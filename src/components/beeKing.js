@@ -193,6 +193,44 @@ Vue.component('bee-king9', {
 });
 
 
+//案例10 v-model的替代方案
+//即手动实现 v-model
+
+//这是一个错误的展示
+/* Vue.component('bee-king10', {
+  props:['value'],  //注意这里
+  methods:{
+    myclick:function(){
+      alert(this.something);
+    }
+  },
+  data(){
+    return{
+      something:'默认值哈哈'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    啦啦啦
+    <input :value="something" @click="something = value" > //注意这里，这里企图使用props，其实犯了大错，props一定是来自于组件上的，而不是input上的value，其而也不能使用 click , 而是input事件
+    <button @click="myclick">点击</button>
+  </div>`,
+}); */
 
 
-
+Vue.component('bee-king10', {
+  methods:{
+    myclick:function(){
+      alert(this.something);
+    }
+  },
+  data(){
+    return{
+      something:'默认值哈哈'
+    }
+  },
+  template: `<div class="bg2 PD10 MT5">
+    啦啦啦
+    <input :value="something" @input="something = $event.target.value" >
+    <button @click="myclick">点击</button>
+  </div>`,
+});
