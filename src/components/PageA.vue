@@ -89,6 +89,10 @@
       <bee-king11></bee-king11>
 
       <!-- 案例11 -->
+      <bee-king12></bee-king12>
+
+
+      <!-- 案例11 -->
       <!-- <bee-king12>
         <bee-king-lbqh></bee-king-lbqh>
       </bee-king12> -->

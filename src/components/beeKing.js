@@ -235,7 +235,10 @@ Vue.component('bee-king10', {
 });
 
 
-//案例11 跨组件之间的双向绑定
+
+
+//案例11 .sync
+//跨组件之间的双向绑定
 Vue.component('bee-king11', {
   methods:{
     myclick:function(){
@@ -261,15 +264,15 @@ Vue.component('bee-king-lbqh', {
       kingName:'',
     }
   },
+  data(){
+    return{}
+  },
   methods:{
     myclick:function(){
-      this.kingName2 =this.kingName+"副本"
-      this.$emit('update:kingName', this.kingName2)
-    }
-  },
-  data(){
-    return{
-      something:'默认值哈哈'
+      this.kingName2 =this.kingName+"副本";
+      //注意，这里是一个非常核心的地方
+      //其实说白了，.sync 双向绑定的实现机制就是 props down、events up
+      this.$emit('update:kingName', this.kingName2);
     }
   },
   template: `<div class="bg2 PD10 MT5">
@@ -282,37 +285,48 @@ Vue.component('bee-king-lbqh', {
 
 
 
-//案例12 跨组件之间的双向绑定
-/* Vue.component('bee-king11', {
+//案例12 .sync 的手动实现
+//跨组件之间的双向绑定
+Vue.component('bee-king12', {
   methods:{
     myclick:function(){
-      alert(this.something);
+      this.something =this.something;
     }
   },
   data(){
     return{
-      something:'默认值哈哈'
+      something:'百里屠苏'
     }
   },
   template: `<div class="bg2 PD10 MT5">
-    啦啦啦
-    <input :value="something" @input="something = $event.target.value" >
-    <button @click="myclick">点击</button>
-    <slot></slot>
+    王者荣耀
+    <div>父级的数据：{{something}}</div>
+    <bee-king-lbqh :kingName="something" @update:kingName=" (a) => something = a" ></bee-king-lbqh>
   </div>`,
 });
 
-Vue.component('bee-king-lbqh', {
+Vue.component('bee-king-blts', {
+  props:['kingName'],
   data(){
     return{
-      something:'默认值哈哈'
+      kingName:'',
+    }
+  },
+  methods:{
+    myclick:function(){
+      this.kingName2 =this.kingName+"副本";
+      this.$emit('update:kingName', this.kingName2);
     }
   },
   template: `<div class="bg2 PD10 MT5">
-    鲁班七号
+    来自父级的数据：{{kingName}}
+    <button @click="myclick">点击</button>
   </div>`,
 });
- */
+
+
+
+
 
 
 
