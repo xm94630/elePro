@@ -362,12 +362,14 @@ export default {
 对于前者而言，它自身依赖的组件，需要在 components 属性中配置。而后者就不用，只需要引入定义的文件就可以了。
 我先暂时把这部分内容记下来。等我下次有时间的时候再实例说明。
 */
+/*
+this.$refs  糗事起到引用的作用
+this.$message可能是ele 封装的弹框的一个
+就好比 this.$router 是路由对vue的扩展，并不是vue 原生就有的
+ */
 
-
-
-
-
-
+//<el-transfer v-model="value1" :data="data"></el-transfer>
+//这里不是input 也使用了 v-model。。。
 
 
 
