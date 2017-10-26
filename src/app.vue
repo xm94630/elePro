@@ -80,24 +80,24 @@
           </myTestB>
 
           <myTestC class="myBoxStyle">
-            <template scope="xixi">
+            <template slot-scope="xixi">
                 <div>{{xixi.text}}</div>
             </template>
           </myTestC>
 
           <myTestD class="myBoxStyle">
             <p slot="xxx">我是组件中的子级内容，最后会被原封不动地渲染呢 </p>
-            <template slot="lala" scope="xixi">
+            <template slot="lala" slot-scope="xixi">
               <p>子级模板的子级节点 固有内容</p>
               <p>{{ xixi.vvv }}</p>
             </template>
           </myTestD>
 
           <myTestE class="myBoxStyle">
-            <template slot="name1" scope="xixi">
+            <template slot="name1" slot-scope="xixi">
                 <span>{{xixi.text}}</span>
             </template>
-            <template slot="name2" scope="xixi">
+            <template slot="name2" slot-scope="xixi">
                 <div>{{xixi.text}}</div>
             </template>
           </myTestE>

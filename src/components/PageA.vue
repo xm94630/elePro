@@ -32,7 +32,7 @@
       <!-- 案例5 -->
       <bee-king5>
         <p>这部分文字将会看不到哦...</p>    <!-- 当没有指定name的时候，这个就会被忽略 -->
-        <template scope="hero">         <!-- 当没有指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
+        <template slot-scope="hero">         <!-- 当没有指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
           <div>{{hero.kingName}}</div>
         </template>
       </bee-king5>
@@ -40,7 +40,7 @@
       <!-- 案例5-2 -->
       <bee-king5>
         <p>被发现啦...</p>                    <!-- 当指定name的时候，就会被用在组件的未名slot处，这里会被用到1次 -->
-        <template scope="hero" slot="xixi">  <!-- 当指定name的时候，就会被用在组件的对应名slot处，这里会被用到2次(被复用) -->
+        <template slot-scope="hero" slot="xixi">  <!-- 当指定name的时候，就会被用在组件的对应名slot处，这里会被用到2次(被复用) -->
           <div>{{hero.kingName}}</div>
         </template>
       </bee-king5>
@@ -69,7 +69,7 @@
       <bee-king7 :attackBig="attackBig">
         <div>欢迎来到王者荣耀</div>
 
-        <template scope="hero" slot="xixi">
+        <template slot-scope="hero" slot="xixi">
           <bee-king-wzj :attack="hero.attack">
             欢迎来看望王昭君
           </bee-king-wzj>
