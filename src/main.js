@@ -295,3 +295,19 @@ new Vue({
     },
  })
 
+
+
+
+// lexical this 练习
+// 答案是 1
+/* class Foo {
+  print = () => {
+    console.log('=====>')
+    console.log(this.x);
+  }
+  constructor() {
+    this.x = 1;
+  }
+}
+let foo = new Foo();
+foo.print.call({x: 2}); */
